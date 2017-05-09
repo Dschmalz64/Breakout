@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollisionBehaviorDelegate{
+class ViewController: UIViewController, UICollisionBehaviorDelegate   {
     
     @IBOutlet weak var ballView: UIView!
     
@@ -82,6 +82,12 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate{
         dynamicAnimator.addBehavior(paddleDynamicBehavior)
   
 
+    }
+    @IBAction func paddleMove(_ sender: UIPanGestureRecognizer) {
+        
+        paddleView.center = CGPoint(x: sender.location(in: self.view).x, y: paddleView.center.y)
+        
+        dynamicAnimator.updateItem(usingCurrentState: paddleView)
     }
 
 }

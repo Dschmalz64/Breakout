@@ -21,24 +21,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QS8-US-kgf">
-                                <rect key="frame" x="94" y="621" width="186" height="26"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="186" id="pCF-0w-Hnv"/>
-                                    <constraint firstAttribute="height" constant="26" id="vJa-yi-6YG"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cux-UU-aPu">
                                 <rect key="frame" x="67" y="323" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.053469049269999999" green="0.16104303610000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QS8-US-kgf">
+                                <rect key="frame" x="112" y="542" width="150" height="26"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="pCF-0w-Hnv"/>
+                                    <constraint firstAttribute="height" constant="26" id="vJa-yi-6YG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QS8-US-kgf" secondAttribute="bottom" constant="20" id="jwn-kJ-XCb"/>
+                            <constraint firstItem="QS8-US-kgf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MbI-th-D7f"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QS8-US-kgf" secondAttribute="bottom" constant="99" id="jwn-kJ-XCb"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="sjL-Vf-yV0" appends="YES" id="ttu-zB-aVc"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="ballView" destination="cux-UU-aPu" id="or0-vR-sTh"/>
@@ -46,9 +51,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="meL-cW-bEV">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="sjL-Vf-yV0">
                     <connections>
-                        <action selector="viewDidAppear:" destination="BYZ-38-t0r" id="Q2G-u5-F68"/>
+                        <action selector="paddleMove:" destination="BYZ-38-t0r" id="cVp-ts-6ju"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
