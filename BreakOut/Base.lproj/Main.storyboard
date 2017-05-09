@@ -35,10 +35,10 @@
                                 <color key="backgroundColor" red="0.053469049269999999" green="0.16104303610000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QS8-US-kgf">
-                                <rect key="frame" x="112" y="542" width="150" height="26"/>
+                                <rect key="frame" x="113" y="542" width="148" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="pCF-0w-Hnv"/>
+                                    <constraint firstAttribute="width" constant="148" id="pCF-0w-Hnv"/>
                                     <constraint firstAttribute="height" constant="26" id="vJa-yi-6YG"/>
                                 </constraints>
                             </view>
@@ -46,7 +46,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="QS8-US-kgf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MbI-th-D7f"/>
+                            <constraint firstItem="QS8-US-kgf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g96-tc-Gae"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QS8-US-kgf" secondAttribute="bottom" constant="99" id="jwn-kJ-XCb"/>
                         </constraints>
                         <connections>
