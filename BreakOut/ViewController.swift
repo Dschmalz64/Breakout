@@ -58,8 +58,6 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
 
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         
-        paddleDynamicBehavior.density = 1000
-        
         blockDynamicBehavior.density = 1000
         
         setUpViews()
@@ -142,6 +140,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         
         paddleDynamicBehavior.density = 10000
         
+        paddleDynamicBehavior.allowsRotation = false
+        
         blockDynamicBehavior.density = 10000
         
         dynamicAnimator.addBehavior(paddleDynamicBehavior)
@@ -166,7 +166,24 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
         print("A ball colided with a boundry at \(p)")
         
+        if p.y > paddleView.center.y
+        {
+    
+        gameOverAlert()
+        
+        }
+        
     }
+
+    func gameOverAlert()
+    {
+        
+        let alert = UIAlertController(title: "You Loose", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 100)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 
 }
 
