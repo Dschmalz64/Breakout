@@ -48,6 +48,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     
     var block10: UIView!
     
+    var blockArray:[UIView]!
+    
     
     
     
@@ -61,6 +63,9 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         blockDynamicBehavior.density = 1000
         
         setUpViews()
+        
+        addDynamicAnimations(array: [block1,block2,block3,block4,block5,block6,block7,block8,block9,block10])
+
     
 
     }
@@ -112,7 +117,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         block10.backgroundColor = UIColor.blue
         view.addSubview(block10)
         
-        addDynamicAnimations(array: [block1,block2,block3,block4,block5,block6,block7,block8,block9,block10])
+        blockArray = [block1, block2, block3, block4, block5, block6, block7, block8, block9, block10]
+        
     }
     func addDynamicAnimations(array: [UIView])
         
@@ -159,8 +165,16 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     }
 
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
-        print("A ball colided with another at \(p)")
-        
+        for block in blockArray
+        {
+            if (item1.isEqual(block) && item2.isEqual(ballView)) || (item2.isEqual(block) && item1.isEqual(ballView))
+            {
+                block.removeFromSuperview()
+                print(block.center)
+                collisionBehavior.removeItem(block)
+            }
+            dynamicAnimator.updateItem(usingCurrentState: block)
+        }
     }
     
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
