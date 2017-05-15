@@ -197,6 +197,11 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         alert.popoverPresentationController?.sourceView = self.view
         alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 100)
         self.present(alert, animated: true, completion: nil)
+    
+    
+    
+    
+    
     }
 
 
