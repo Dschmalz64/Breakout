@@ -172,7 +172,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         {
             if (item1.isEqual(block) && item2.isEqual(ballView)) || (item2.isEqual(block) && item1.isEqual(ballView))
             {
-                collisionBehavior.removeItem(block)
+                self.collisionBehavior.removeItem(block)
                 block.removeFromSuperview()
                 print(block.center)
                
@@ -187,6 +187,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         if p.y > paddleView.center.y
         {
     
+            dynamicAnimator.removeAllBehaviors()
         gameOverAlert()
         
         }
