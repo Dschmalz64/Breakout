@@ -124,14 +124,16 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         
     {
         
-        let myViewDynamicBehavior = UIDynamicItemBehavior(items: [ballView, paddleView, block1, block2, block3,block4,block5,block6,block7,block8,block9,block10])
-        myViewDynamicBehavior.density = 1
-        myViewDynamicBehavior.friction = 0
-        myViewDynamicBehavior.elasticity = 1
-        myViewDynamicBehavior.resistance = 0
-        dynamicAnimator.addBehavior(myViewDynamicBehavior)
+        let ballDynamicBehavior = UIDynamicItemBehavior(items: [ballView])
+        
+        ballDynamicBehavior.resistance = 0.0
+        ballDynamicBehavior.friction = 0.0
+        ballDynamicBehavior.elasticity = 1.0
+        ballDynamicBehavior.allowsRotation = false
+        dynamicAnimator.addBehavior(ballDynamicBehavior)
+        
         let pushBehavior =  UIPushBehavior(items: [ballView], mode: .instantaneous)
-        pushBehavior.pushDirection = CGVector(dx: 0.0, dy: 0.5)
+        pushBehavior.pushDirection = CGVector(dx: 0.5, dy: 0.5)
         dynamicAnimator.addBehavior(pushBehavior)
         
         let collisionBehavior = UICollisionBehavior(items: [paddleView, ballView, block1, block2, block3,block4,block5,block6,block7,block8,block9,block10])
@@ -140,19 +142,20 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         collisionBehavior.collisionDelegate = self
         dynamicAnimator.addBehavior(collisionBehavior)
         
-        paddleDynamicBehavior = UIDynamicItemBehavior(items: [paddleView])
-        
-        blockDynamicBehavior = UIDynamicItemBehavior(items: [block1,block2,block3,block4,block5,block6,block7,block8,block9,block10])
+        let  paddleDynamicBehavior = UIDynamicItemBehavior(items: [paddleView])
         
         paddleDynamicBehavior.density = 10000
-        
         paddleDynamicBehavior.allowsRotation = false
-        
-        blockDynamicBehavior.density = 10000
-        
+        paddleDynamicBehavior.friction = 0
+        paddleDynamicBehavior.elasticity = 1.0
         dynamicAnimator.addBehavior(paddleDynamicBehavior)
         
+        let blockDynamicBehavior = UIDynamicItemBehavior(items: [block1,block2,block3,block4,block5,block6,block7,block8,block9,block10])
+        
+        blockDynamicBehavior.density = 10000
+        blockDynamicBehavior.elasticity = 1.0
         dynamicAnimator.addBehavior(blockDynamicBehavior)
+        
         
         
 
@@ -193,7 +196,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     func gameOverAlert()
     {
         
-        let alert = UIAlertController(title: "You Loose", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert = UIAlertController(title: "You Lose", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         alert.popoverPresentationController?.sourceView = self.view
         alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 100)
         self.present(alert, animated: true, completion: nil)
