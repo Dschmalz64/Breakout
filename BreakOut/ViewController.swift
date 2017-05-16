@@ -192,7 +192,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     func gameOverAlert()
     {
         
-        let alert = UIAlertController(title: "You Loose", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert = UIAlertController(title: "You Lose", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         alert.popoverPresentationController?.sourceView = self.view
         alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 100)
         self.present(alert, animated: true, completion: nil)
