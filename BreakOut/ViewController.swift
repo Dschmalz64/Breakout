@@ -132,10 +132,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         ballDynamicBehavior.allowsRotation = false
         dynamicAnimator.addBehavior(ballDynamicBehavior)
         
-        let pushBehavior =  UIPushBehavior(items: [ballView], mode: .instantaneous)
-        pushBehavior.pushDirection = CGVector(dx: 0.5, dy: 0.5)
-        dynamicAnimator.addBehavior(pushBehavior)
-        
+                
         let collisionBehavior = UICollisionBehavior(items: [paddleView, ballView, block1, block2, block3,block4,block5,block6,block7,block8,block9,block10])
         collisionBehavior.translatesReferenceBoundsIntoBoundary = true
         collisionBehavior.collisionMode = .everything
@@ -208,6 +205,13 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     
     }
 
+    @IBAction func startButton(_ sender: Any) {
+    
+        let pushBehavior =  UIPushBehavior(items: [ballView], mode: .instantaneous)
+        pushBehavior.pushDirection = CGVector(dx: 0.5, dy: 0.5)
+        dynamicAnimator.addBehavior(pushBehavior)
+    
+    }
 
 }
 
