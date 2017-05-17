@@ -120,6 +120,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         blockArray = [block1, block2, block3, block4, block5, block6, block7, block8, block9, block10]
         
     }
+    
     func addDynamicAnimations(array: [UIView])
         
     {
@@ -153,10 +154,9 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         blockDynamicBehavior.elasticity = 1.0
         dynamicAnimator.addBehavior(blockDynamicBehavior)
         
-        
-        
 
     }
+    
     @IBAction func paddleMove(_ sender: UIPanGestureRecognizer) {
         
         paddleView.center = CGPoint(x: sender.location(in: self.view).x, y: paddleView.center.y)
@@ -181,12 +181,17 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
         print("A ball colided with a boundry at \(p)")
         
-        if p.y > paddleView.center.y
+        if item.isEqual(ballView)
         {
-    
-            dynamicAnimator.removeAllBehaviors()
-        gameOverAlert()
-        
+            if p.y > paddleView.center.y
+                
+            {
+                
+                dynamicAnimator.removeAllBehaviors()
+                gameOverAlert()
+                
+            }
+ 
         }
         
     }
