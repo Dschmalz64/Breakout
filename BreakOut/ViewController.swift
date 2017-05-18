@@ -172,6 +172,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
                 self.collisionBehavior.removeItem(block)
                 block.removeFromSuperview()
                 print(block.center)
+                dynamicAnimator.updateItem(usingCurrentState: block)
                
             }
             dynamicAnimator.updateItem(usingCurrentState: block)
