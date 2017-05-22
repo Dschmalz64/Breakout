@@ -125,7 +125,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         
     {
         
-        let ballDynamicBehavior = UIDynamicItemBehavior(items: [ballView])
+         ballDynamicBehavior = UIDynamicItemBehavior(items: [ballView])
         
         ballDynamicBehavior.resistance = 0.0
         ballDynamicBehavior.friction = 0.0
@@ -141,7 +141,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         collisionBehavior.collisionDelegate = self
         dynamicAnimator.addBehavior(collisionBehavior)
         
-        let  paddleDynamicBehavior = UIDynamicItemBehavior(items: [paddleView])
+          paddleDynamicBehavior = UIDynamicItemBehavior(items: [paddleView])
         
         paddleDynamicBehavior.density = 10000
         paddleDynamicBehavior.allowsRotation = false
@@ -149,7 +149,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         paddleDynamicBehavior.elasticity = 1.0
         dynamicAnimator.addBehavior(paddleDynamicBehavior)
         
-        let blockDynamicBehavior = UIDynamicItemBehavior(items: [block1,block2,block3,block4,block5,block6,block7,block8,block9,block10])
+         blockDynamicBehavior = UIDynamicItemBehavior(items: [block1,block2,block3,block4,block5,block6,block7,block8,block9,block10])
         
         blockDynamicBehavior.density = 10000
         blockDynamicBehavior.elasticity = 1.0
@@ -173,6 +173,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
                 self.collisionBehavior.removeItem(block)
                 block.removeFromSuperview()
                 print(block.center)
+                
                
             }
             dynamicAnimator.updateItem(usingCurrentState: block)
