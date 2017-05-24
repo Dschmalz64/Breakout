@@ -50,6 +50,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     
     var blockArray:[UIView]!
     
+    @IBOutlet weak var startButton: UIButton!
     
     
     
@@ -217,6 +218,9 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         let pushBehavior =  UIPushBehavior(items: [ballView], mode: .instantaneous)
         pushBehavior.pushDirection = CGVector(dx: 0.5, dy: 0.5)
         dynamicAnimator.addBehavior(pushBehavior)
+        startButton.isEnabled = false
+        startButton.isHidden = true
+
     
         pushBehavior.magnitude = 0.2
     }

@@ -56,6 +56,7 @@
                     <connections>
                         <outlet property="ballView" destination="cux-UU-aPu" id="or0-vR-sTh"/>
                         <outlet property="paddleView" destination="QS8-US-kgf" id="VU9-zU-w3P"/>
+                        <outlet property="startButton" destination="5ud-eO-mib" id="c5a-pT-w0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
