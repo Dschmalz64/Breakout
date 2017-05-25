@@ -159,13 +159,26 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
 
     }
     
+    @IBAction func startButtonPressed(_ sender: UIButton) {
+        let pushBehavior =  UIPushBehavior(items: [ballView], mode: .instantaneous)
+        pushBehavior.pushDirection = CGVector(dx: 0.5, dy: 0.5)
+        dynamicAnimator.addBehavior(pushBehavior)
+        sender.isEnabled = false
+        startButton.isHidden = true
+        
+        
+        pushBehavior.magnitude = 0.2
+    }
+    
+    
     @IBAction func paddleMove(_ sender: UIPanGestureRecognizer) {
         
         paddleView.center = CGPoint(x: sender.location(in: self.view).x, y: paddleView.center.y)
         
         dynamicAnimator.updateItem(usingCurrentState: paddleView)
+    
     }
-
+    
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
         for block in blockArray
         {
@@ -202,28 +215,36 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     func gameOverAlert()
     {
         
-        let alert = UIAlertController(title: "You Lose", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        alert.popoverPresentationController?.sourceView = self.view
-        alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 100)
+        let alert = UIAlertController(title: "You Lose", message: "Play Again", preferredStyle: UIAlertControllerStyle.actionSheet)
+        //alert.popoverPresentationController?.sourceView = self.view
+        //alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 100)
+        
+        let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
+            
+            // Do nothing
+            
+        }
+        
+        alert.addAction(okButton)
+        
+        let resetButton = UIAlertAction(title: "Reset", style: .default) { (action) in
+            
+            // call reset function
+            
+        }
+        
+        alert.addAction(resetButton)
+
         self.present(alert, animated: true, completion: nil)
-    
-    
-    
+
     
     
     }
 
-    @IBAction func startButton(_ sender: Any) {
+  
     
-        let pushBehavior =  UIPushBehavior(items: [ballView], mode: .instantaneous)
-        pushBehavior.pushDirection = CGVector(dx: 0.5, dy: 0.5)
-        dynamicAnimator.addBehavior(pushBehavior)
-        startButton.isEnabled = false
-        startButton.isHidden = true
-
-    
-        pushBehavior.magnitude = 0.2
+       
     }
 
-}
+
 
