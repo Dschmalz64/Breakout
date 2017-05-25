@@ -216,9 +216,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     {
         
         let alert = UIAlertController(title: "You Lose", message: "Play Again", preferredStyle: UIAlertControllerStyle.actionSheet)
-        //alert.popoverPresentationController?.sourceView = self.view
-        //alert.popoverPresentationController?.sourceRect = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 100)
-        
+
         let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
             
             // Do nothing
@@ -229,7 +227,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         
         let resetButton = UIAlertAction(title: "Reset", style: .default) { (action) in
             
-            // call reset function
+             self.reset()
             
         }
         
@@ -239,6 +237,17 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
 
     
     
+    }
+    
+    func reset()
+    {
+        print("In Reset")
+        
+        setUpViews()
+        
+        startButton.isHidden = false
+        
+        startButton.isEnabled = true
     }
 
   
