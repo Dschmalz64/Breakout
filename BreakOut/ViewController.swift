@@ -52,12 +52,16 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     
     @IBOutlet weak var startButton: UIButton!
     
+    var ballStart = CGPoint()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ballView.layer.cornerRadius = 12.0
+        
+        ballStart = ballView.center
 
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         
@@ -65,7 +69,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         
         setUpViews()
         
-        addDynamicAnimations(array: [block1,block2,block3,block4,block5,block6,block7,block8,block9,block10])
+        addDynamicAnimations()
 
     
 
@@ -122,7 +126,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         
     }
     
-    func addDynamicAnimations(array: [UIView])
+    func addDynamicAnimations()
         
     {
         
@@ -180,6 +184,9 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     }
     
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
+        
+        print("in two items colide")
+        
         for block in blockArray
         {
             if (item1.isEqual(block) && item2.isEqual(ballView)) || (item2.isEqual(block) && item1.isEqual(ballView))
@@ -243,11 +250,17 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     {
         print("In Reset")
         
+        ballView.center = CGPoint(x: 75, y: 75)
+        
         setUpViews()
         
         startButton.isHidden = false
         
         startButton.isEnabled = true
+        
+        addDynamicAnimations()
+        
+        
     }
 
   
