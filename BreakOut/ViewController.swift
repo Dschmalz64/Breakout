@@ -54,6 +54,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     
     var ballStart = CGPoint()
     
+    var blockCounter = 0
+    
     
     
     override func viewDidLoad() {
@@ -195,6 +197,11 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
                 block.removeFromSuperview()
                 print(block.center)
                 
+                blockCounter += 1
+                
+                print(blockCounter)
+                
+                
                
             }
             dynamicAnimator.updateItem(usingCurrentState: block)
@@ -224,7 +231,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         
         let alert = UIAlertController(title: "You Lose", message: "Play Again", preferredStyle: UIAlertControllerStyle.actionSheet)
 
-        let okButton = UIAlertAction(title: "OK", style: .default) { (action) in
+        let okButton = UIAlertAction(title: "NO!", style: .default) { (action) in
             
             // Do nothing
             
@@ -251,6 +258,26 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         print("In Reset")
         
         ballView.center = CGPoint(x: 75, y: 75)
+        
+        block1.removeFromSuperview()
+
+        block2.removeFromSuperview()
+        
+        block3.removeFromSuperview()
+        
+        block4.removeFromSuperview()
+       
+        block5.removeFromSuperview()
+      
+        block6.removeFromSuperview()
+        
+        block7.removeFromSuperview()
+        
+        block8.removeFromSuperview()
+        
+        block9.removeFromSuperview()
+       
+        block10.removeFromSuperview()
         
         setUpViews()
         
