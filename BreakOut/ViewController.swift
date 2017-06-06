@@ -201,6 +201,10 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
                 
                 print(blockCounter)
                 
+                if blockCounter == 10
+                {
+                    gameWinAlert()
+                }
                 
                
             }
@@ -225,11 +229,40 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         }
         
     }
+    func gameWinAlert()
+    {
+        
+        let alert = UIAlertController(title: "You Win", message: "Play Again?", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let okButton = UIAlertAction(title: "NO!", style: .default) { (action) in
+            
+            // Do nothing
+            
+        }
+        
+        alert.addAction(okButton)
+        
+        let resetButton = UIAlertAction(title: "Reset", style: .default) { (action) in
+            
+            self.reset()
+            
+        }
+        
+        alert.addAction(resetButton)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        dynamicAnimator.removeAllBehaviors()
+        
+        
+        
+        
+    }
 
     func gameOverAlert()
     {
         
-        let alert = UIAlertController(title: "You Lose", message: "Play Again", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert = UIAlertController(title: "You Lose", message: "Play Again?", preferredStyle: UIAlertControllerStyle.actionSheet)
 
         let okButton = UIAlertAction(title: "NO!", style: .default) { (action) in
             
@@ -256,6 +289,8 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
     func reset()
     {
         print("In Reset")
+        
+        blockCounter = 0
         
         ballView.center = CGPoint(x: 75, y: 75)
         
