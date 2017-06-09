@@ -173,7 +173,7 @@ class ViewController: UIViewController, UICollisionBehaviorDelegate {
         startButton.isHidden = true
         
         
-        pushBehavior.magnitude = 0.2
+        pushBehavior.magnitude = 0.5
     }
     
     
